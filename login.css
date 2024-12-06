@@ -33,6 +33,8 @@
     outline: none;
     margin-bottom: 20px;
     box-shadow: 3px 4px 7px rgba(0,0,0, .5);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #0a1929; /* Azul muito escuro */
   }
   
   .button {
@@ -50,12 +52,12 @@
   }
   
   .button:hover {
-    background-color: #5630cc;
+    background-color: #0d47a1; /* Azul escuro */
     color: white;
   }
 
   .pError {
-    color: red;
+    color: #ef5350; /* Vermelho mais suave */
     font-size: 1.2rem;
     margin-top: 1rem;
     text-shadow: 1px 1px 2px rgba(0,0,0, 1);

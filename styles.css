@@ -6,9 +6,8 @@
 
 body {
   font-family: "Sour Gummy", sans-serif;
-  background-color: rgba(166, 122, 255, 1);
+  background-color: #6991ff; 
   color: #fff;
-  margin: 0;
   padding: 0;
   transition: all 0.3s ease-in-out;
 }
@@ -22,7 +21,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #5500FF;
+  background-color: #0d47a1;
   color: white;
   box-shadow: 0 0 1rem rgba(1, 1, 1, 1.1);
   gap: 20px;
@@ -62,7 +61,7 @@ body {
   }
 
   #theme:checked {
-    background-color: #351165;
+    background-color: #000000;
   }
 
   #theme::before {
@@ -82,7 +81,7 @@ body {
   }
 
   .nav-button {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(13, 71, 161, 0.6); 
     color: white;
     border: none;
     padding: 8px 16px;
@@ -92,40 +91,40 @@ body {
     font-size: 0.9rem;
     transition: background-color 0.2s ease;
     margin: 0 20px;
-    /* Ajusta as margens */
+    
     flex: 0 0 auto;
   }
 
   .nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(13, 71, 161, 0.8);
   }
 
   .nav-button.danger {
-    background-color: rgba(255, 59, 48, 0.2);
+    background-color: rgba(255, 69, 0, 0.2); 
   }
 
   .nav-button.danger:hover {
-    background-color: rgba(255, 59, 48, 0.3);
+    background-color: rgba(255, 69, 0, 0.3); 
   }
 
-  /* Dark Theme */
+
   body.dark {
     transition: all 0.3s ease-in-out;
-    background-color: #261150;
-    color: #000;
+    background-color: #0a1929;
+    color: #90caf9; 
   }
 
   body.dark .list {
-    background-color: #ffffff;
+    background-color: #1a237e;
   }
 
   body.dark .card {
-    background-color: #f9f9f9;
+    background-color: #283593;
   }
 
   body.dark .board-title,
   body.dark .list-title {
-    border-bottom-color: #5500FF;
+    border-bottom-color: #000000; 
   }
 
   body.dark .title {
@@ -187,7 +186,7 @@ body {
   }
 
   .button:hover {
-    background-color: #5630cc;
+    background-color: #ffffff;
     color: white;
   }
 
@@ -263,7 +262,7 @@ body {
 
   #add-board {
     margin-top: 20px;
-    background-color: #5500FF;
+    background-color: #001dc4;
     color: white;
   }
 
@@ -277,6 +276,20 @@ body {
     flex: 1;
     max-width: 400px;
     margin: 0 auto;
+    background-color: #6991ff;
+    color: white;
+    border: 1px solid #3b82f6;
+  }
+
+  .dropdown option {
+    background-color: #6991ff;
+    color: white;
+  }
+
+  .dropdown:focus {
+    outline: none;
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
   }
 
   .dropdown {
@@ -425,7 +438,7 @@ body {
   #add-column {
     min-width: 272px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.24);
+    background: rgba(13, 71, 161, 0.5);
     color: white;
     border: none;
     border-radius: 3px;
@@ -439,7 +452,7 @@ body {
   }
 
   #add-column:hover {
-    background: rgba(255, 255, 255, 0.32);
+    background: rgba(13, 71, 161, 0.7);
   }
 
   .add-task-btn {
@@ -466,5 +479,5 @@ body {
   .theme-toggle {
     flex: 0 0 auto;
     margin-left: auto;
-    /* Empurra para a direita */
+   
   }
