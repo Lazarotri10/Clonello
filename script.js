@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (user) {
         localStorage.setItem('userEmail', email);
         localStorage.setItem('userId', user.Id); 
-        window.location.href = 'trelofake.html';
+        window.location.href = 'Clonello.html';
       } else {
         const showError = document.getElementById('error');
         showError.innerHTML = "Email não encontrado, verifique seu email e tente novamente";
