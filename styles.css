@@ -81,7 +81,7 @@ body {
   }
 
   .nav-button {
-    background-color: rgba(13, 71, 161, 0.6); 
+    background-color: rgba(66, 142, 255, 0.6); 
     color: white;
     border: none;
     padding: 8px 16px;
@@ -96,15 +96,15 @@ body {
   }
 
   .nav-button:hover {
-    background-color: rgba(13, 71, 161, 0.8);
+    background-color: rgba(159, 197, 255, 0.8);
   }
 
   .nav-button.danger {
-    background-color: rgba(255, 69, 0, 0.2); 
+    background-color: rgb(5, 0, 78); 
   }
 
   .nav-button.danger:hover {
-    background-color: rgba(255, 69, 0, 0.3); 
+    background-color: rgb(129, 34, 0); 
   }
 
 
@@ -316,7 +316,7 @@ body {
   }
 
   .column {
-    background: #ebecf0;
+    background: #8fa5ff;
     border-radius: 3px;
     width: 272px;
     padding: 0.5rem;
