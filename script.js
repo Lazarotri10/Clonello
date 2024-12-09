@@ -130,21 +130,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  const deleteBoardButton = document.getElementById('delete-board');
-  if (deleteBoardButton) {
-    deleteBoardButton.addEventListener('click', async () => {
-      const boardId = document.getElementById('user-boards-dropdown').value;
-      if (!boardId) {
-        alert('Por favor, selecione um quadro para excluir');
-        return;
-      }
-      
-      if (confirm('Tem certeza que deseja excluir este quadro e todo seu conteúdo?')) {
-        await deleteBoard(boardId);
-      }
-    });
-  }
-
 });
 
 async function loadUserBoards() {
@@ -206,7 +191,6 @@ function createColumnElement(column) {
       <h3 class="column-title">${column.Name}</h3>
       <div class="column-actions">
         <button class="add-task-btn" title="Adicionar tarefa">+</button>
-        <button class="delete-column-btn" title="Excluir lista">✕</button>
       </div>
     </div>
     <div class="task-list"></div>
@@ -216,36 +200,7 @@ function createColumnElement(column) {
   const addTaskBtn = columnElement.querySelector('.add-task-btn');
   addTaskBtn.addEventListener('click', () => addNewTask(column.Id));
 
-
-  const deleteColumnBtn = columnElement.querySelector('.delete-column-btn');
-  deleteColumnBtn.addEventListener('click', async (e) => {
-    e.stopPropagation();
-    if (confirm('Tem certeza que deseja excluir esta lista e todas as suas tarefas?')) {
-      await deleteColumn(column.Id);
-    }
-  });
-  
   return columnElement;
-}
-
-
-async function deleteColumn(columnId) {
-  try {
-    const response = await fetch(`${API_BASE_URL}/Column?ColumnId=${columnId}`, {
-      method: 'DELETE'
-    });
-
-    if (!response.ok) {
-      throw new Error('Erro ao excluir lista');
-    }
-
-
-    const boardId = document.getElementById('user-boards-dropdown').value;
-    await loadBoardById(boardId);
-  } catch (error) {
-    console.error('Erro ao excluir lista:', error);
-    alert('Erro ao excluir lista');
-  }
 }
 
 function createTaskElement(task) {
@@ -258,11 +213,8 @@ function createTaskElement(task) {
     </div>
     <div class="task-actions">
       <button class="edit-task-btn" title="Editar tarefa">✎</button>
-      <button class="delete-task-btn" title="Excluir tarefa">✕</button>
     </div>
   `;
-
-
   const editBtn = taskElement.querySelector('.edit-task-btn');
   editBtn.addEventListener('click', async (e) => {
     e.stopPropagation();
@@ -272,14 +224,6 @@ function createTaskElement(task) {
         ...task,
         Title: newTitle
       });
-    }
-  });
-
-  const deleteBtn = taskElement.querySelector('.delete-task-btn');
-  deleteBtn.addEventListener('click', async (e) => {
-    e.stopPropagation(); 
-    if (confirm('Tem certeza que deseja excluir esta tarefa?')) {
-      await deleteTask(task.Id);
     }
   });
   
@@ -305,24 +249,6 @@ async function updateTask(task) {
   } catch (error) {
     console.error('Erro ao atualizar tarefa:', error);
     alert('Erro ao atualizar tarefa');
-  }
-}
-
-async function deleteTask(taskId) {
-  try {
-    const response = await fetch(`${API_BASE_URL}/Task?TaskId=${taskId}`, {
-      method: 'DELETE'
-    });
-
-    if (!response.ok) {
-      throw new Error('Erro ao excluir tarefa');
-    }
-
-    const boardId = document.getElementById('user-boards-dropdown').value;
-    await loadBoardById(boardId);
-  } catch (error) {
-    console.error('Erro ao excluir tarefa:', error);
-    alert('Erro ao excluir tarefa');
   }
 }
 
@@ -427,31 +353,4 @@ if (addBoardButton) {
       }
     }
   });
-}
-
-
-async function deleteBoard(boardId) {
-  try {
-    const response = await fetch(`${API_BASE_URL}/Board?BoardId=${boardId}`, {
-      method: 'DELETE'
-    });
-
-    if (!response.ok) {
-      throw new Error('Erro ao excluir quadro');
-    }
-
-
-    document.getElementById('columns-container').innerHTML = '';
-    document.getElementById('current-board-name').textContent = 'Nome do Quadro';
-    
-
-    await loadUserBoards();
- 
-    const userBoardsDropdown = document.getElementById('user-boards-dropdown');
-    userBoardsDropdown.value = '';
-
-  } catch (error) {
-    console.error('Erro ao excluir quadro:', error);
-    alert('Erro ao excluir quadro');
-  }
 }

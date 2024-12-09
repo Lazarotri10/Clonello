@@ -343,27 +343,6 @@ body {
     align-items: center;
   }
 
-  .delete-column-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    color: #6b778c;
-    padding: 4px 8px;
-    border-radius: 3px;
-    opacity: 0;
-    transition: all 0.2s ease;
-  }
-
-  .column-header:hover .delete-column-btn {
-    opacity: 1;
-  }
-
-  .delete-column-btn:hover {
-    background-color: rgba(9, 30, 66, 0.08);
-    color: #172b4d;
-  }
-
   .task-list {
     min-height: 1px;
   }
@@ -385,8 +364,7 @@ body {
     gap: 4px;
   }
 
-  .edit-task-btn,
-  .delete-task-btn {
+  .edit-task-btn {
     background: none;
     border: none;
     color: #6b778c;
@@ -399,41 +377,16 @@ body {
     transition: all 0.2s ease;
   }
 
-  .task-card:hover .edit-task-btn,
-  .task-card:hover .delete-task-btn {
+  .task-card:hover .edit-task-btn {
     visibility: visible;
     opacity: 1;
   }
 
-  .edit-task-btn:hover,
-  .delete-task-btn:hover {
+  .edit-task-btn:hover {
     background-color: rgba(9, 30, 66, 0.08);
     color: #172b4d;
   }
 
-  .delete-task-btn {
-    background: none;
-    border: none;
-    color: #6b778c;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 4px 8px;
-    border-radius: 3px;
-    margin-left: 8px;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.2s ease;
-  }
-
-  .task-card:hover .delete-task-btn {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .delete-task-btn:hover {
-    background-color: rgba(9, 30, 66, 0.08);
-    color: #172b4d;
-  }
 
   #add-column {
     min-width: 272px;
