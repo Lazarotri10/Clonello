@@ -1,7 +1,7 @@
-
 import { API_BASE_URL } from '/apiconfig.js';
 
 export async function handleLogin() {
+  // Obtém o email inserido pelo usuário
   const email = document.getElementById('email').value;
 
   if (!email) {
@@ -10,6 +10,7 @@ export async function handleLogin() {
   }
 
   try {
+    // Envia uma requisição para obter o usuário pelo email
     const response = await fetch(`${API_BASE_URL}/GetPersonByEmail?Email=${encodeURIComponent(email)}`);
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -17,6 +18,7 @@ export async function handleLogin() {
     const user = await response.json();
 
     if (user) {
+      // Armazena o email e o ID do usuário no localStorage
       localStorage.setItem('userEmail', email);
       localStorage.setItem('userId', user.Id); 
       window.location.href = 'Clonello.html';

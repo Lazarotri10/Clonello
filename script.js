@@ -5,6 +5,7 @@ import { createNewColumn } from './columns.js';
 import { addNewTask, updateTask } from './tasks.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
+  // Configura o alternador de tema
   const themeToggle = document.getElementById('theme');
   if (themeToggle) {
     themeToggle.addEventListener('change', () => {
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Elemento theme não encontrado');
   }
 
+  // Configura o botão de login
   const loginButton = document.getElementById('login-button');
   if (loginButton) {
     loginButton.addEventListener('click', handleLogin);
@@ -22,12 +24,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Elemento login-button não encontrado');
   }
 
+  // Configura o evento de pressionar Enter para login
   const clickEnter = addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
       handleLogin();
     }
   });
 
+  // Configura o dropdown de quadros do usuário
   const userBoardsDropdown = document.getElementById('user-boards-dropdown');
   if (userBoardsDropdown) {
     userBoardsDropdown.addEventListener('change', async () => {
@@ -40,13 +44,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  // Carrega os quadros do usuário
   await loadUserBoards();
 
+  // Exibe o email do usuário armazenado
   const storedEmail = localStorage.getItem('userEmail');
   if (storedEmail) {
     document.getElementById('userEmail').textContent = storedEmail; 
   }
 
+  // Configura o botão para adicionar nova coluna
   const addColumnButton = document.getElementById('add-column');
   if (addColumnButton) {
     addColumnButton.addEventListener('click', async () => {
@@ -59,6 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
+  // Configura o botão para criar novo quadro
   const createBoardButton = document.getElementById('create-board');
   if (createBoardButton) {
     createBoardButton.addEventListener('click', async () => {
