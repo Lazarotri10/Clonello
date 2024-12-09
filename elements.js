@@ -1,7 +1,7 @@
-
 import { addNewTask, updateTask } from './tasks.js';
 
 export function createColumnElement(column) {
+  // Cria o elemento da coluna
   const columnElement = document.createElement('div');
   columnElement.className = 'column';
   columnElement.innerHTML = `
@@ -14,6 +14,7 @@ export function createColumnElement(column) {
     <div class="task-list"></div>
   `;
   
+  // Adiciona evento para o botão de adicionar tarefa
   const addTaskBtn = columnElement.querySelector('.add-task-btn');
   addTaskBtn.addEventListener('click', () => addNewTask(column.Id));
 
@@ -21,6 +22,7 @@ export function createColumnElement(column) {
 }
 
 export function createTaskElement(task) {
+  // Cria o elemento da tarefa
   const taskElement = document.createElement('div');
   taskElement.className = 'task-card';
   taskElement.innerHTML = `
@@ -32,6 +34,8 @@ export function createTaskElement(task) {
       <button class="edit-task-btn" title="Editar tarefa">✎</button>
     </div>
   `;
+  
+  // Adiciona evento para o botão de editar tarefa
   const editBtn = taskElement.querySelector('.edit-task-btn');
   editBtn.addEventListener('click', async (e) => {
     e.stopPropagation();
